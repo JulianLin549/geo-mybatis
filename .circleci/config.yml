@@ -36,7 +36,15 @@ slack-fail-post-step: &slack-fail-post-step
           			"fields": [
           				{
           					"type": "mrkdwn",
-          					"text": "*Branch:*\n${CIRCLE_BRANCH}\n@channel"
+          					"text": "*Branch:*\n${CIRCLE_BRANCH}\n"
+          				}
+          			]
+          		},{
+          			"type": "section",
+          			"fields": [
+          				{
+          					"type": "mrkdwn",
+          					"text": "*User:*\n${CIRCLE_USERNAME}\n@channel"
           				}
           			]
           		},
@@ -96,7 +104,7 @@ jobs:
             - v1-dependencies-{{ checksum "pom.xml" }}
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
-      - run: mvn clean install
+      - run: mvn clean install -DskipTests
       - run: mvn dependency:go-offline
       - run: mvn integration-test
         
@@ -142,7 +150,15 @@ workflows:
                   			"fields": [
                   				{
                   					"type": "mrkdwn",
-                  					"text": "*Branch:*\n${CIRCLE_BRANCH}\n@channel"
+                  					"text": "*Branch:*\n${CIRCLE_BRANCH}\n"
+                  				}
+                  			]
+                  		},{
+                  			"type": "section",
+                  			"fields": [
+                  				{
+                  					"type": "mrkdwn",
+                  					"text": "*Branch:*\n${CIRCLE_USERNAME}\n@channel"
                   				}
                   			]
                   		},
