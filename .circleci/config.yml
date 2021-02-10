@@ -54,7 +54,7 @@ slack-fail-post-step: &slack-fail-post-step
           						"text": "View Job"
           					},
           					"style": "danger",
-          					"url": "http://google.com"
+          					"url": "${CIRCLE_BUILD_URL}"
           				}
           			]
           		}
@@ -164,7 +164,7 @@ workflows:
                   						"text": "View Job"
                   					},
                   					"style": "danger",
-                  					"url": "http://google.com"
+                  					"url": "${CIRCLE_BUILD_URL}"
                   				}
                   			]
                   		}
