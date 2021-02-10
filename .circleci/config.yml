@@ -31,23 +31,19 @@ slack-fail-post-step: &slack-fail-post-step
           				}
           			]
           		},
-          		{
-          			"type": "section",
-          			"fields": [
-          				{
-          					"type": "mrkdwn",
-          					"text": "*Branch:*\n${CIRCLE_BRANCH}\n"
-          				}
-          			]
-          		},{
-          			"type": "section",
-          			"fields": [
-          				{
-          					"type": "mrkdwn",
-          					"text": "*User:*\n${CIRCLE_USERNAME}\n@channel"
-          				}
-          			]
-          		},
+                {
+                    "type": "section",
+                    "fields": [
+                        {
+                            "type": "mrkdwn",
+                            "text": "*Branch:*\n${CIRCLE_BRANCH}\n"
+                        },
+                        {
+                            "type": "mrkdwn",
+                            "text": "*UserName:*\n${CIRCLE_USERNAME}\n@channel"
+                        }
+                    ]
+                },
           		{
           			"type": "actions",
           			"elements": [
@@ -151,15 +147,11 @@ workflows:
                   				{
                   					"type": "mrkdwn",
                   					"text": "*Branch:*\n${CIRCLE_BRANCH}\n"
-                  				}
-                  			]
-                  		},{
-                  			"type": "section",
-                  			"fields": [
-                  				{
-                  					"type": "mrkdwn",
-                  					"text": "*Branch:*\n${CIRCLE_USERNAME}\n@channel"
-                  				}
+                  				},
+                                {
+                                    "type": "mrkdwn",
+                                    "text": "*UserName:*\n${CIRCLE_USERNAME}\n@channel"
+                                }
                   			]
                   		},
                   		{
