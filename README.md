@@ -41,7 +41,7 @@ public class User {
 这里使用java代码配置，也可以使用xml配置
 ```java
 @Configuration
-@MapperScan(basePackages = {"com.carson.**.mapper"}, sqlSessionTemplateRef = "sqlSessionTemplate")
+@MapperScan(basePackages = {"com.demo.**.mapper"}, sqlSessionTemplateRef = "sqlSessionTemplate")
 public class MybatisConfig {
 
     @Bean
@@ -53,7 +53,7 @@ public class MybatisConfig {
         ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
         try {
             bean.setMapperLocations(resolver.getResources("classpath:mybatis/**/*Mapper.xml"));
-            bean.setTypeAliasesPackage("com.carson.pojo");
+            bean.setTypeAliasesPackage("com.demo.pojo");
             //为mybatis配置增加MysqlGeoPointTypeHandler,使查询时能够映射geometry类型的字段
             bean.setTypeHandlers(new TypeHandler[]{new MysqlGeoPointTypeHandler(0)});
             bean.getObject().getConfiguration().setMapUnderscoreToCamelCase(true);

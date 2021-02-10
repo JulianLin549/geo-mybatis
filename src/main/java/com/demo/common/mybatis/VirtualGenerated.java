@@ -1,4 +1,4 @@
-package com.carson.common.mybatis;
+package com.demo.common.mybatis;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

@@ -1,0 +1,14 @@
+version: '3.8'   # Docker Engine release 19.03.0+
+
+services:
+  in_food:
+    image: mysql:8.0
+    environment:
+      MYSQL_DATABASE: 'in_food_dev'
+      MYSQL_USER: 'in_food_user'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'password'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'

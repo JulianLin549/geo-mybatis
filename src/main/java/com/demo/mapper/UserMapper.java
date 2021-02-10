@@ -1,11 +1,10 @@
-package com.carson.mapper;
+package com.demo.mapper;
 
-import com.carson.common.mybatis.GeoBaseInsertMapper;
-import com.carson.common.mybatis.GeoBaseUpdateMapper;
-import com.carson.pojo.User;
+import com.demo.common.mybatis.GeoBaseInsertMapper;
+import com.demo.common.mybatis.GeoBaseUpdateMapper;
+import com.demo.pojo.User;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.SelectProvider;
 import org.springframework.stereotype.Repository;
 import tk.mybatis.mapper.common.base.BaseSelectMapper;
 

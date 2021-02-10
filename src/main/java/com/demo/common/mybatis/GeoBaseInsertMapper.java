@@ -1,4 +1,4 @@
-package com.carson.common.mybatis;
+package com.demo.common.mybatis;
 
 import org.apache.ibatis.annotations.InsertProvider;
 import tk.mybatis.mapper.annotation.RegisterMapper;

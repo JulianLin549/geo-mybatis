@@ -1,7 +1,7 @@
-package com.carson.controller;
+package com.demo.controller;
 
-import com.carson.pojo.User;
-import com.carson.service.UserService;
+import com.demo.pojo.User;
+import com.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

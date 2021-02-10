@@ -1,6 +1,6 @@
-package com.carson.config;
+package com.demo.config;
 
-import com.carson.common.mybatis.MysqlGeoPointTypeHandler;
+import com.demo.common.mybatis.MysqlGeoPointTypeHandler;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.type.TypeHandler;
 import org.mybatis.spring.SqlSessionFactoryBean;
@@ -17,7 +17,7 @@ import javax.sql.DataSource;
 
 
 @Configuration
-@MapperScan(basePackages = {"com.carson.**.mapper"}, sqlSessionTemplateRef = "sqlSessionTemplate")
+@MapperScan(basePackages = {"com.demo.**.mapper"}, sqlSessionTemplateRef = "sqlSessionTemplate")
 public class MybatisConfig {
 
     @Bean
@@ -29,7 +29,7 @@ public class MybatisConfig {
         ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
         try {
             bean.setMapperLocations(resolver.getResources("classpath:mybatis/**/*Mapper.xml"));
-            bean.setTypeAliasesPackage("com.carson.pojo");
+            bean.setTypeAliasesPackage("com.demo.pojo");
             bean.setTypeHandlers(new TypeHandler[]{new MysqlGeoPointTypeHandler()});
             bean.getObject().getConfiguration().setMapUnderscoreToCamelCase(true);
             return bean.getObject();

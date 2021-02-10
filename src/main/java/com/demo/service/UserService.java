@@ -1,12 +1,11 @@
-package com.carson.service;
+package com.demo.service;
 
-import com.carson.mapper.UserMapper;
-import com.carson.pojo.User;
+import com.demo.mapper.UserMapper;
+import com.demo.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
 

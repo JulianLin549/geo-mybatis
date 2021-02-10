@@ -1,7 +1,7 @@
-package com.carson.pojo;
+package com.demo.pojo;
 
-import com.carson.common.mybatis.GeoPoint;
-import com.carson.common.mybatis.VirtualGenerated;
+import com.demo.common.mybatis.GeoPoint;
+import com.demo.common.mybatis.VirtualGenerated;
 
 import javax.persistence.Column;
 import javax.persistence.Table;
