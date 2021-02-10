@@ -1,7 +1,7 @@
 version: 2.1
+
 orbs:
-  slack: circleci/slack@4.0
-  
+  slack: circleci/slack@4.1.1
 slack-fail-post-step: &slack-fail-post-step
   post-steps:
     - slack/notify:
@@ -73,11 +73,8 @@ workflows:
   workflow:
     jobs:
       - build:
-          context:
-            - slack
           <<: *slack-fail-post-step
       - test:
-          context: [slack]
           requires:
             - build
           post-steps:
