@@ -1,5 +1,7 @@
 version: 2.1
-
+orbs:
+  slack: circleci/slack@4.0
+  
 slack-fail-post-step: &slack-fail-post-step
   post-steps:
     - slack/notify:
@@ -31,9 +33,6 @@ slack-fail-post-step: &slack-fail-post-step
             ]
           }
         event: fail
-
-orbs:
-  slack: circleci/slack@4.1.1
 
 jobs:
   build:
