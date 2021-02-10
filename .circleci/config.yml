@@ -7,7 +7,6 @@ slack-fail-post-step: &slack-fail-post-step
     - slack/notify:
         branch_pattern: main
         channel: 'test-1'
-        mentions: '@channel'
         custom: |
           {
           	"blocks": [
@@ -15,7 +14,7 @@ slack-fail-post-step: &slack-fail-post-step
           			"type": "header",
           			"text": {
           				"type": "plain_text",
-          				"text": "❌ Build Failed on ${CIRCLE_BRANCH}",
+          				"text": "❌ Build Failed on *${CIRCLE_BRANCH}*",
           				"emoji": true
           			}
           		},
@@ -37,7 +36,7 @@ slack-fail-post-step: &slack-fail-post-step
           			"fields": [
           				{
           					"type": "mrkdwn",
-          					"text": "*Branch:*\n${CIRCLE_BRANCH}"
+          					"text": "*Branch:*\n${CIRCLE_BRANCH}\n@channel"
           				}
           			]
           		},
@@ -48,11 +47,10 @@ slack-fail-post-step: &slack-fail-post-step
           					"type": "button",
           					"text": {
           						"type": "plain_text",
-          						"emoji": true,
           						"text": "View Job"
           					},
           					"style": "danger",
-          					"value": "$CIRCLE_BUILD_URL"
+          					"url": "http://google.com"
           				}
           			]
           		}
@@ -92,7 +90,7 @@ jobs:
       MAVEN_OPTS: -Xmx3200m
 
     steps:
-      - run: mvn install -DskipTests
+      - run: mvn clean install
       - run: mvn dependency:go-offline
       - run: mvn integration-test
         
@@ -109,7 +107,6 @@ workflows:
             - slack/notify:
                 branch_pattern: main
                 channel: 'test-1'
-                mentions: '@channel'
                 custom: |
                   {
                   	"blocks": [
@@ -117,7 +114,7 @@ workflows:
                   			"type": "header",
                   			"text": {
                   				"type": "plain_text",
-                  				"text": "❌ Test Failed on ${CIRCLE_BRANCH}",
+                  				"text": "❌ Test Failed on *${CIRCLE_BRANCH}*",
                   				"emoji": true
                   			}
                   		},
@@ -139,7 +136,7 @@ workflows:
                   			"fields": [
                   				{
                   					"type": "mrkdwn",
-                  					"text": "*Branch:*\n${CIRCLE_BRANCH}"
+                  					"text": "*Branch:*\n${CIRCLE_BRANCH}\n@channel"
                   				}
                   			]
                   		},
@@ -150,11 +147,10 @@ workflows:
                   					"type": "button",
                   					"text": {
                   						"type": "plain_text",
-                  						"emoji": true,
                   						"text": "View Job"
                   					},
                   					"style": "danger",
-                  					"value": "$CIRCLE_BUILD_URL"
+                  					"url": "http://google.com"
                   				}
                   			]
                   		}
