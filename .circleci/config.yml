@@ -43,13 +43,15 @@ jobs:
           key: v1-dependencies-{{ checksum "pom.xml" }}
       # run tests!
       - run: mvn integration-test
-      - slack/notify:
-          branch_pattern: production
-          event: pass
-          mentions: '@Julian'
-          template: success_tagged_deploy_1
+      # - slack/notify:
+      #     branch_pattern: production
+      #     event: pass
+      #     mentions: '@Julian'
+      #     template: success_tagged_deploy_1
       - slack/notify:
           channel: 'test-1'
+          event: pass
+          branch_pattern: main
           custom: |
             {
               "blocks": [
@@ -97,11 +99,10 @@ jobs:
                 }
               ]
             }
-          event: pass
-      - slack/notify:
-          event: fail
-          mentions: '@channel'
-          template: basic_fail_1
+      # - slack/notify:
+      #     event: fail
+      #     mentions: '@channel'
+      #     template: basic_fail_1
 workflows:
   send-notification:
     jobs:
