@@ -78,7 +78,7 @@ jobs:
     docker:
       - image: circleci/openjdk:11-browsers-legacy
       - image: circleci/mysql:8.0
-      command: [ --default-authentication-plugin=mysql_native_password ]
+        command: [ --default-authentication-plugin=mysql_native_password ]
         environment:
           MYSQL_DATABASE: 'in_food_dev'
           MYSQL_USER: 'in_food_user'
@@ -90,12 +90,11 @@ jobs:
       MAVEN_OPTS: -Xmx3200m
 
     steps:
-      - checkout
       - restore_cache:
-      keys:
-        - v1-dependencies-{{ checksum "pom.xml" }}
-        # fallback to using the latest cache if no exact match is found
-        - v1-dependencies-
+          keys:
+            - v1-dependencies-{{ checksum "pom.xml" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
       - run: mvn clean install
       - run: mvn dependency:go-offline
       - run: mvn integration-test
