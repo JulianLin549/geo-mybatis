@@ -50,7 +50,7 @@ jobs:
       #     template: success_tagged_deploy_1
       - slack/notify:
           channel: 'test-1'
-          event: pass
+          event: always
           branch_pattern: main
           custom: |
             {
@@ -99,10 +99,10 @@ jobs:
                 }
               ]
             }
-      # - slack/notify:
-      #     event: fail
-      #     mentions: '@channel'
-      #     template: basic_fail_1
+      - slack/notify:
+          event: fail
+          mentions: '@channel'
+          template: basic_fail_1
 workflows:
   send-notification:
     jobs:
